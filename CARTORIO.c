@@ -117,55 +117,75 @@ int deletar()//função Deletar Usuário
 int main () // função onde rodará o núcleo do programa
 // -- () => simboliza função -- int: função do tipo inteiro
 {
+	setlocale(LC_ALL,"Portuguese"); // indica qual idioma de referência
+	// para a biblioteca <locate.h> o ';' indica fim de instrução
+	//---------- VARIAVEIS INICIAIS --------------- 
 	int opcao = 0;// variavel que armazena o valor inteiro correspondente ao
 	// a terefa escolhida 1-REGISTRAR   2-REGISTRAR   3-DELETAR.
 	int x = 1;// variável usada no loop infinito do for
-	setlocale(LC_ALL,"Portuguese"); // indica qual idioma de referência
-	// para a biblioteca <locate.h> o ';' indica fim de instrução
-	for(x=1;x=1;)// estruturado para fazer um loop infinito
+	char senha[10]="a";// variável para a senha
+	int comparacao; // variável que armazenar a comparação de strings
+	// pela função => strcmp, da biblioteca => <string.h>
+	//--------------------------------------------- 
+	
+	printf(" ----- CARTÓRIO DA EBAC -----\n\n"); //'\n' indica pular uma linha
+			// na exibição para o usuário
+	printf("\nDIGITE A SENHA DE ADMINISTRADOR => ");
+	scanf("%s",senha); // Recebe o dado do tipo string do usuário e coloca
+	// na variavel senha
+	comparacao = strcmp(senha,"admin");// se o dado que o usuário digitou for igual 
+	// a ' admin ', comparação receberá o valor ' 0 ' 
+	
+	if(comparacao == 0)// É necessário colocar 'senha[10]' em vez 'senha'
+	// 'senha' somente não é reconhecido
 	{
-	
-		system("cls");// Apaga tudo exibido no console até aqui
-		printf(" ----- CARTÓRIO DA EBAC -----\n\n\n"); //'\n' indica pular uma linha
-		// na exibição para o usuário
-		printf(" --- Escolha a opção desejada ---\n\n");
-		printf("\t1 -- REGISTRAR Usuário --\n"); //'t' espaçamento igual o TAB do
-		// teclado
-		printf("\t2 -- CONSULTAR Usuário --\n");
-		printf("\t3 -- DELETAR Usuário --\n"); 
-		printf("\t4 -- SAIR DO SISTEMA --\n\n"); 
-		printf(" DIGITE OPCAO DESEJADA => ");
-	
-		scanf("%d", &opcao);//armazena na variavel opcao, o valor que o usuario 
-		// digitar... %d - indica que a variavel sera convertida para o tipo inteiro.
-		
-		system("cls");// Apaga tudo exibido no console até aqui
-		
-		switch(opcao)
+		for(x=1;x=1;)// estruturado para fazer um loop infinito
 		{
-			case 1:
-			registrar();	
-			break;
+		
+			system("cls");// Apaga tudo exibido no console até aqui
+						printf(" --- Escolha a opção desejada ---\n\n");
+			printf("\t1 -- REGISTRAR Usuário --\n"); //'t' espaçamento igual o TAB do
+			// teclado
+			printf("\t2 -- CONSULTAR Usuário --\n");
+			printf("\t3 -- DELETAR Usuário --\n"); 
+			printf("\t4 -- SAIR DO SISTEMA --\n\n"); 
+			printf(" DIGITE OPCAO DESEJADA => ");
+		
+			scanf("%d", &opcao);//armazena na variavel opcao, o valor que o usuario 
+			// digitar... %d - indica que a variavel sera convertida para o tipo inteiro.
 			
-			case 2:
-			consultar();
-			break;
+			system("cls");// Apaga tudo exibido no console até aqui
 			
-			case 3:
-			deletar();	
-			break;
-			
-			case 4:
-			printf("\nTENHA UM BOM DIA ");
-			return 0;//retornar 0 sistem entende que tem que sair
-			break;
-			
-			default:// Caso nenhuma opção acima seja atendida
-				printf("-- Opção Inválida --\n\n");
-				system("pause");
-			break;
-		}
-			
+			switch(opcao)
+			{
+				case 1:
+				registrar();	
+				break;
+				
+				case 2:
+				consultar();
+				break;
+				
+				case 3:
+				deletar();	
+				break;
+				
+				case 4:
+				printf("\nTENHA UM BOM DIA ");
+				return 0;//retornar 0 sistem entende que tem que sair
+				break;
+				
+				default:// Caso nenhuma opção acima seja atendida
+					printf("-- Opção Inválida --\n\n");
+					system("pause");
+				break;
+			}// fim switch(opcao)
+				
+		}// fim for(x=1;x=1;)
+	}//fim if(senha == "admin")
+	else
+	{
+		printf("\nSENHA INVÁlIDA\n");
 	}
 }
 
