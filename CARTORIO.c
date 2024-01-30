@@ -132,7 +132,8 @@ int main () // função onde rodará o núcleo do programa
 		printf("\t1 -- REGISTRAR Usuário --\n"); //'t' espaçamento igual o TAB do
 		// teclado
 		printf("\t2 -- CONSULTAR Usuário --\n");
-		printf("\t3 -- DELETAR Usuário --\n\n"); 
+		printf("\t3 -- DELETAR Usuário --\n"); 
+		printf("\t4 -- SAIR DO SISTEMA --\n\n"); 
 		printf(" DIGITE OPCAO DESEJADA => ");
 	
 		scanf("%d", &opcao);//armazena na variavel opcao, o valor que o usuario 
@@ -152,6 +153,11 @@ int main () // função onde rodará o núcleo do programa
 			
 			case 3:
 			deletar();	
+			break;
+			
+			case 4:
+			printf("\nTENHA UM BOM DIA ");
+			return 0;//retornar 0 sistem entende que tem que sair
 			break;
 			
 			default:// Caso nenhuma opção acima seja atendida
